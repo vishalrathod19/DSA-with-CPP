@@ -12,7 +12,7 @@ string remove_ocurance(string & s,string & part)
 int main()
 {
     string s = "daabcbaabcbc";
-    string p = "abcd";
+    string p = "abc";
     string result = remove_ocurance(s,p);
     cout<<result<<endl;
     return 0 ;
