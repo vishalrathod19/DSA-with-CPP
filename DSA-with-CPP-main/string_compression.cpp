@@ -26,11 +26,11 @@ int string_compression(vector<char>& ch)
             }
         }
         i=j;
-    }
+    }//moving to different character 
    return ansIndex; 
 }
 int main() {
-    vector<char> ch = "a,a,b,b,b,c,c,c";
+    string ch = "aabbbccc";
     vector<char> ch_vector(ch.begin(), ch.end());
     int compressed_length = string_compression(ch_vector);
     for (int i = 0; i < compressed_length; ++i) {
