@@ -30,11 +30,11 @@ int main ()
     vector<vector<int>> matrix = {{1, 2, 3},
                                    {4, 5, 6},
                                    {7, 8, 9}}; 
-  int target = 10;
+  int target = 4 ;
   int result = binary_search(matrix,row,col,target);
    if(result!=-1)
     {
-        cout<<"the element found at index :- "<<result<<endl;
+        cout<<"the element is found"<endl;
     }
     else {
         cout<<"The element is not found"<<endl;
