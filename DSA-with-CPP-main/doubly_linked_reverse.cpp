@@ -120,6 +120,20 @@ void deleteNode(int position , Node* &head)
      }
 }
 
+Node* reverseDoublyLinkedlist(Node* head)
+{
+    if(head->next==NULL||head==NULL)
+    {
+        return head;
+    }
+    Node * newhead = reverseDoublyLinkedlist(head->next);
+    head->next->prev = head->next->next;
+    head->next->next = head;
+    head->prev = head->next;
+    head->next = NULL;
+    return newhead;
+}
+
 int main()
 {
     Node *node1 = new Node(10);
@@ -140,6 +154,9 @@ int main()
     InsertionAtPosition(tail,head,1, 43);
     print (head);
     deleteNode(4,head);
+    print(head);
+    head = reverseDoublyLinkedlist(head);
+    cout << "Reversed Linked List: ";
     print(head);
     return 0;
 }

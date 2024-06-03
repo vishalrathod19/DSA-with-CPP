@@ -33,6 +33,7 @@ void InsertAtHead(Node* &head,int d) {
     head = temp;
 }
 
+
 void print(Node* &head)
 {
     Node*temp = head ;
@@ -91,53 +92,63 @@ void deleteNode(int position , Node* &head)
      }
 }
 
-/*Node* reverse1(Node * head)
+Node *findMiddle(Node *head)
 {
-    //basecase
-    if(head==NULL||head->next==NULL)
-    {
-        return head;
-    }
-    Node* smallhead = reverse1(head -> next);
-    head->next->next = head;
-    head->next = NULL;
-    return smallhead;
-}*/
+      if (head == NULL||head->next==NULL)
+      { 
+        return NULL;
+      }     
+      if (head->next->next==NULL)
+      {
+        return head->next;
+      }
+      Node* slow = head ;
+      Node* fast = head->next;
+      while(fast!=NULL)
+      {
+        fast = fast->next;
+        if(fast!=NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+      }
+    return slow;
+} 
 
-Node* reverseLinkedList(Node* head) {
-        //basecase
-    if(head==NULL||head->next==NULL)
-    {
-        return head;
-    }
-    Node* smallhead = reverseLinkedList(head -> next);
-    head->next->next = head;
-    head->next = NULL;
-    return smallhead;
-}
-
-int main() {
-    Node* node1 = new Node(10);
+int main ()
+{
+    Node* node1= new Node(20);
+    cout<<node1->data<<endl;
+    cout<<node1->next<<endl;
+    //head pointed to node1
     Node* head = node1;
     Node* tail = node1;
     print(head);
-
-    InsertAtTail(tail, 12);
-    print(head);
-
-    InsertAtTail(tail, 15);
-    print(head);
-
-    InsertionAtPosition(head, 3, 22);
-    print(head);
-
-   // deleteNode(3, head);
-   // print(head);
-
-    // Reverse the linked list
-    head = reverseLinkedList(head);
-    cout << "Reversed Linked List: ";
-    print(head);
-
-    return 0;
+    InsertAtHead(head , 12);
+    print (head);
+     InsertAtHead(head , 13);
+    print (head);
+    InsertAtHead(head , 15);
+    print (head);
+     InsertAtHead(head , 18);
+    print (head);
+    InsertAtTail(tail,17);
+    print (head);
+    InsertAtTail(tail,15);
+    print (head);
+    InsertAtTail(tail,19);
+    print (head);
+    InsertAtTail(tail,25);
+    print (head);
+     InsertAtTail(tail,28);
+    print (head);
+    //InsertionAtPosition(head,3,22);
+    //print (head);
+    cout<<endl;
+    //deleteNode(3,head);
+    //print (head);
+    Node* middle = findMiddle(head);
+    cout << "Middle element: " << middle->data << endl;
+    return 0 ; 
 }
