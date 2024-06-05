@@ -87,10 +87,10 @@ Node* uniqueSortedList(Node* head) {
 
     while (curr != NULL && curr->next != NULL) {
         if (curr->data == curr->next->data) {
-            Node* nodeToDelete = curr->next;
-            curr->next = curr->next->next;
-            nodeToDelete->next = NULL; // Ensure no recursive delete
+            Node* next_next = curr ->next -> next;
+            Node* nodeToDelete = curr -> next;
             delete nodeToDelete;
+            curr -> next = next_next;
         } else {
             curr = curr->next;
         }
@@ -117,8 +117,6 @@ int main() {
 
     cout << "List after removing duplicates: ";
     print(head);
-
-   
 
     return 0;
 }
