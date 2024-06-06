@@ -175,8 +175,4 @@ int main ()
     removeLoop(head);
     print(head);
     return 0; 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6ec65e02865a0d2f40057304772c6ed4249fd977
