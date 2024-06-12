@@ -1,70 +1,29 @@
-#include <iostream>
-#include <map>
+#include<iostream>
+#include<stack>
 
 using namespace std;
 
-class Node {
-public:
-    int data;
-    Node* next;
+int main()
+{
+    stack<int> s;
 
-    Node(int data) {
-        this->data = data;
-        this->next = NULL;
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    s.push(5);
+
+    s.pop();
+
+    cout<<"printing top element : "<<s.top()<<endl;
+    if(s.empty())
+    {
+       cout<<"stack is empty "<<endl;  
+    }
+    else{
+        cout<<"stack is not empty "<<endl;
     }
 
-    ~Node() {
-        cout << "Memory is free for node with data " << this->data << endl;
-    }
-};
-
-void InsertAtTail(Node* &tail, int d) {
-    Node* temp = new Node(d);
-    tail->next = temp;
-    tail = temp;
-}
-
-void print(Node* head) {
-    Node* temp = head;
-    while (temp != NULL) {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
-}
-
-void removeDuplicates(Node* &head){
-    map<Node*, bool> visited;
-    Node* curr = head;
-    Node* prev = NULL;
+    cout<<"size of the stack is "<<s.size()<<endl;
     
-    while(curr != NULL) {
-        if(visited[curr]) {
-            prev->next = curr->next;
-            delete curr;
-            curr = prev->next;
-        } else {
-            visited[curr] = true;
-            prev = curr;
-            curr = curr->next;
-        }
-    }
-}
-
-int main() {
-    Node* head = new Node(10);
-    Node* tail = head;
-
-    InsertAtTail(tail, 12);
-    InsertAtTail(tail, 11);
-    InsertAtTail(tail, 12);
-    InsertAtTail(tail, 11);
-    InsertAtTail(tail, 12);
-
-    cout << "Original list: ";
-    print(head);
-    removeDuplicates(head);
-    cout << "List after removing duplicates: ";
-    print(head);
-    return 0;
+    return 0 ;
 }
