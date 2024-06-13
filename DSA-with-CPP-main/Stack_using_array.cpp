@@ -9,7 +9,7 @@ class Stack {
     int *arr;
     int top;
     int size;
-  \
+  
     //behaviour
     Stack(int size){
          this->size = size;
@@ -67,5 +67,10 @@ int main()
     st.pop();
 
     cout<<st.peek()<<endl;
+    
+    st.isempty();
+    
+
+    return 0;
 
 }
